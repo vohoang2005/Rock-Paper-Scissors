@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./rock-paper-scissors.css"></script>
+  <link rel="stylesheet" href="./rock-paper-scissors.css">
   <title>Rock Paper Scissors</title>
+
 </head>
 <body>
-  <p>Rock Paper Scissors</p>
+  <p class="title">Rock Paper Scissors</p>
   <!-- Rock -->
   <button onclick="
     playGame('Rock');
-  ">Rock</button>
+  " class="move-button"
+  ><img src="./assets/rock-emoji.png" class="move-icon"></button>
 
   <!-- Paper -->
   <button onclick="
     playGame('Paper');
-  ">Paper</button>
+  " class="move-button"
+  ><img src="./assets/paper-emoji.png" class="move-icon"></button>
 
   <!-- Scissors -->
   <button onclick="
     playGame('Scissors');
-  ">Scissors</button>
+  " class="move-button"
+  ><img src="./assets/scissors-emoji.png" class="move-icon"></button>
 
 
-  <p class="js-result"></p>
+  <p class="js-result result"></p>
   <p class="js-moves"></p>
-  <p class="js-score"></p>
+  <p class="js-score score"> </p>
 
   <!-- Reset Scores -->
   <button onclick="
@@ -35,7 +39,7 @@
     score.ties = 0;
     localStorage.removeItem('score');
     updateScoreElement();
-  ">Reset Score</button>
+  " class="reset-score-button">Reset Score</button>
 
 </body>
   <script src="./rock-paper-scissors.js"></script>
