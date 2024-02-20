@@ -8,6 +8,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 let isAutoPlaying = false;
 let intervalId;
+
 function autoPlay() {
   if (!isAutoPlaying) {
     intervalId =  setInterval(function() {
@@ -21,6 +22,17 @@ function autoPlay() {
     isAutoPlaying = false;
   }
 }
+
+
+  function stopPlay() {
+    const stopElement = document.querySelector('.auto-stop-button');
+  
+      if (stopElement.innerHTML === 'Auto Play') {
+        stopElement.innerHTML = 'Stop Auto Play';
+      } else {
+        stopElement.innerHTML = 'Auto Play';
+      }
+  }
 
 document.querySelector('.js-rock-button').addEventListener('click', () => {
   playGame('Rock');
