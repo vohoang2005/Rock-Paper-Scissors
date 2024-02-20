@@ -1,11 +1,12 @@
+/* Set LocalStorage */
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
 };
-
   updateScoreElement()
 
+/* AutoPlay Function */
 let isAutoPlaying = false;
 let intervalId;
 
@@ -22,8 +23,7 @@ function autoPlay() {
     isAutoPlaying = false;
   }
 }
-
-
+/* Stop Auto Play Function */
   function stopPlay() {
     const stopElement = document.querySelector('.auto-stop-button');
   
@@ -34,6 +34,7 @@ function autoPlay() {
       }
   }
 
+/* Click Function to Select Rock Paper Scissor */
 document.querySelector('.js-rock-button').addEventListener('click', () => {
   playGame('Rock');
 });
@@ -46,6 +47,7 @@ document.querySelector('.js-scissor-button').addEventListener('click', () => {
   playGame('Scissors');
 });
 
+/* Keydown Function to Select Rock Paper Scissor */
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'r') {
     playGame('Rock');
@@ -56,6 +58,7 @@ document.body.addEventListener('keydown', (event) => {
   }
 });
 
+/* Player Move Function and Result Checks */
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
@@ -87,6 +90,7 @@ function playGame(playerMove) {
       }
     }
 
+/* Result Function */
     if (result === 'You win.') {
       score.wins += 1;
     } else if (result === 'You lose.') {
@@ -107,11 +111,13 @@ function playGame(playerMove) {
     Computer`;
 }
 
+/* Live Result Section */
 function updateScoreElement() {
   document.querySelector('.js-score')
   .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`
 }
 
+/* Computer Random Pick Section */
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
